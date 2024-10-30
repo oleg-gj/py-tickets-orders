@@ -59,7 +59,7 @@ class MovieViewSet(viewsets.ModelViewSet):
         date = self.request.query_params.get("date")
         if actors:
             actors = self._params_to_ints(actors)
-            queryset = queryset.filter(id__in=actors)
+            queryset = queryset.filter(actors__id__in=actors)
         if genres:
             genres = self._params_to_ints(genres)
             queryset = queryset.filter(genres__in=genres)
